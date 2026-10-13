@@ -2,7 +2,7 @@
 // (e.g. shop/__next.shop/__PAGE__.txt) while the client router requests the
 // flattened name (shop/__next.shop.__PAGE__.txt). Plain static hosts like
 // Hostinger can't rewrite that, so we emit a flattened copy of each file.
-import { copyFileSync, readdirSync, statSync } from "node:fs";
+import { copyFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -32,5 +32,9 @@ function walk(dir) {
   }
 }
 
-walk(out);
-console.log(`flattened ${count} RSC segment payloads`);
+if (!existsSync(out)) {
+  console.log("flatten-rsc: no out/ directory (not a static export) — skipped");
+} else {
+  walk(out);
+  console.log(`flattened ${count} RSC segment payloads`);
+}

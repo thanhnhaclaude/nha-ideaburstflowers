@@ -6,7 +6,7 @@ next-env.d.ts
 .env*
 !.env.example
 stripe-config.php
-public/api/catalog.json
+
 .DS_Store
 Thumbs.db
 npm-debug.log*

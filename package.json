@@ -2,11 +2,13 @@
   "name": "ideaburst-flowers",
   "version": "1.0.0",
   "private": true,
-  "description": "IdeaBurst Flowers — luxury florist storefront for Kalispell, Montana. Next.js static export + Stripe Checkout (PHP endpoint) for Hostinger shared hosting.",
+  "description": "IdeaBurst Flowers — luxury florist storefront for Kalispell, Montana. Next.js (Node server or static export) + Stripe Checkout.",
   "scripts": {
-    "dev": "node scripts/sync-catalog.mjs && next dev",
-    "build": "node scripts/sync-catalog.mjs && next build && node scripts/flatten-rsc.mjs",
-    "start": "npx serve out",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build:static": "node scripts/build-static.mjs",
+    "preview:static": "npx serve out",
     "lint": "tsc --noEmit"
   },
   "engines": {
@@ -14,11 +16,13 @@
   },
   "dependencies": {
     "next": "^16.4.0",
+    "nodemailer": "^10.1.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "typescript": "^5.9.3"

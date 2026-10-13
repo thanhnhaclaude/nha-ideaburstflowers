@@ -1,78 +1,72 @@
 # IdeaBurst Flowers — Website
 
 Website thương mại điện tử cao cấp cho **IdeaBurst Flowers** (Kalispell, Montana).
-Next.js 16 xuất tĩnh (static export) + PHP endpoint cho Stripe Checkout. Chạy được trên **gói Hostinger Premium/Single**, không cần Node.js server.
+Next.js 16, một mã nguồn deploy được theo **2 cách**:
+
+| | **A. Hostinger Node.js Web App** (đang dùng) | **B. Tĩnh + PHP qua FTP** (dự phòng) |
+|---|---|---|
+| Lệnh build | `npm run build` → `npm start` | `npm run build:static` → thư mục `out/` |
+| Thanh toán, form | API Next.js (`src/server/*`) | PHP (`hosting/static/api/*.php`) |
+| Cấu hình bí mật | Biến môi trường trên Hostinger | `~/ideaburst-config.php` |
+
+Cả hai đều dùng chung đường dẫn `/api/checkout.php` và `/api/inquiry.php`, nên giao diện không phải đổi gì.
 
 ## Tính năng
 
-- 45 trang tĩnh, đã tối ưu SEO: metadata, Open Graph, sitemap, robots, JSON-LD (Florist, Product, FAQ, BlogPosting)
+- 46 trang, đã tối ưu SEO: metadata, Open Graph, sitemap, robots, JSON-LD (Florist, Product, FAQ, BlogPosting)
 - Shop, 6 bộ sưu tập, 16 sản phẩm, quà tặng kèm (add-on)
 - Giỏ hàng lưu trên trình duyệt, drawer, trang giỏ hàng gồm ZIP, ngày giao, người nhận, lời nhắn thiệp
 - **Stripe Checkout** (thẻ, Apple Pay, Google Pay). Giá luôn được tính lại phía server từ `catalog.json`
 - Gói hoa định kỳ (Stripe subscription): 3 cỡ × 3 tần suất, có giảm giá
 - Kiểm tra vùng giao hàng theo ZIP, 3 vùng phí, chặn giờ same-day lúc 2 PM giờ Mountain
-- Trang Cưới & Sự kiện kèm form tư vấn; Liên hệ; Newsletter (gửi email qua PHP `mail()`)
+- Trang Cưới & Sự kiện kèm form tư vấn; Liên hệ; Newsletter; form thu đánh giá khách hàng
 - Journal/blog (4 bài), FAQ, chính sách (Freshness & Refunds, Privacy, Terms)
 - Responsive từ 375px, đạt chuẩn WCAG AA về tương phản, có focus ring, điều hướng bàn phím, hỗ trợ reduced-motion
 
 ## Cấu trúc
 
 ```
-src/data/catalog.json   ← sản phẩm, giá, add-on, gói subscription, vùng giao hàng (SỬA Ở ĐÂY)
-src/data/site.json      ← tên, địa chỉ, điện thoại, email, giờ mở cửa
-src/data/content.ts     ← testimonials, bài Journal, FAQ
-src/app/                ← các trang (App Router)
-src/components/         ← component giao diện
-public/api/*.php        ← checkout.php (Stripe), inquiry.php (email)
-public/.htaccess        ← HTTPS, URL sạch, cache, security headers
-design-system/MASTER.md ← quy tắc thiết kế
+src/data/catalog.json    ← sản phẩm, giá, add-on, gói subscription, vùng giao hàng (SỬA Ở ĐÂY)
+src/data/site.json       ← tên, địa chỉ, điện thoại, email, giờ mở cửa
+src/data/content.ts      ← đánh giá, bài Journal, FAQ
+src/app/                 ← các trang (App Router)
+src/app/api/*/route.server.ts ← API cho cách A (chỉ build khi không xuất tĩnh)
+src/server/              ← logic Stripe & gửi email cho cách A
+src/components/          ← component giao diện
+hosting/static/          ← .htaccess + PHP cho cách B (được chép vào out/ khi build tĩnh)
+design-system/MASTER.md  ← quy tắc thiết kế
+docs/REVIEWS.md          ← quy trình thu đánh giá & quy tắc FTC
 ```
 
 ## Chạy trên máy
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000 (form & checkout cần PHP nên chỉ chạy sau khi deploy)
-npm run build      # xuất ra thư mục out/
+cp .env.example .env.local   # điền key test để thử thanh toán/form trên máy
+npm run dev                  # http://localhost:3000
 ```
 
-## Deploy lên Hostinger (gói Premium/Single)
+## Cách A: Hostinger Node.js Web App (khuyên dùng)
 
-### 1. Đẩy code lên GitHub
+1. hPanel → **Triển khai** → kết nối GitHub repo `nha-ideaburstflowers`, nhánh `main`, framework **Next.js**.
+   Để các thiết lập build mặc định: lệnh build là `npm run build`, lệnh chạy là `npm start`. Nên chọn **Node.js 22** nếu có.
+2. hPanel → **Biến môi trường**: thêm các biến trong [`.env.example`](.env.example):
+   - `STRIPE_SECRET_KEY`: Stripe Dashboard → Developers → API keys (bắt đầu bằng `sk_test_` khi thử)
+   - `SITE_URL`: `https://ideaburstflowers.com`
+   - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`: hộp thư Hostinger, tạo ở hPanel → Emails. Máy chủ là `smtp.hostinger.com`, cổng `465`
+   - `MAIL_FROM`, `MAIL_TO`: địa chỉ gửi và địa chỉ nhận email từ form
+3. Bấm **Tái triển khai**. Mỗi lần `git push` lên `main`, Hostinger sẽ tự build lại.
+4. Test thanh toán với thẻ `4242 4242 4242 4242` (ngày hết hạn bất kỳ trong tương lai, CVC bất kỳ). Khi đã ổn, đổi sang `sk_live_…`.
 
-```bash
-git remote add origin https://github.com/<tai-khoan>/ideaburst-flowers.git
-git push -u origin main
-```
+Khi dùng cách A, **không thêm** các secret FTP trên GitHub. GitHub Actions khi đó chỉ build để kiểm tra code, không upload gì.
 
-### 2. Lấy thông tin FTP trên Hostinger
+## Cách B: Tĩnh + PHP qua FTP (dự phòng cho gói không có Node.js)
 
-hPanel → **Files → FTP Accounts**. Ghi lại *FTP hostname* (hoặc IP), *username* và *password*.
+1. Thêm GitHub Secrets ở repo → **Settings → Secrets and variables → Actions**: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, và tuỳ chọn `FTP_SERVER_DIR` (mặc định `public_html/`).
+2. Tạo file `~/ideaburst-config.php` ở thư mục **home**, cấp trên `public_html`, theo mẫu [`ideaburst-config.example.php`](ideaburst-config.example.php). Yêu cầu PHP ≥ 8.1.
+3. Mỗi lần push, GitHub Actions sẽ chạy `npm run build:static` rồi upload `out/` lên Hostinger.
 
-### 3. Thêm GitHub Secrets
-
-Repo → **Settings → Secrets and variables → Actions → New repository secret**:
-
-| Secret | Giá trị |
-|---|---|
-| `FTP_SERVER` | FTP hostname, ví dụ `ftp.ideaburstflowers.com` hoặc IP |
-| `FTP_USERNAME` | ví dụ `u123456789` |
-| `FTP_PASSWORD` | mật khẩu FTP |
-| `FTP_SERVER_DIR` | *(tuỳ chọn)* mặc định `public_html/`. Với addon domain: `domains/ideaburstflowers.com/public_html/` |
-
-Từ đó, mỗi lần `git push` lên `main`, GitHub Actions sẽ tự chạy kiểm tra kiểu, build rồi upload thư mục `out/` lên Hostinger.
-Nếu bước FTP báo lỗi TLS, đổi `protocol: ftps` thành `protocol: ftp` trong `.github/workflows/deploy.yml`.
-
-> ⚠️ Lần deploy đầu tiên sẽ **ghi đè** website cũ trong `public_html`. Hãy sao lưu trước: hPanel → Files → Backups, hoặc tải `public_html` về máy.
-
-### 4. Cấu hình Stripe và email (làm một lần)
-
-1. Tạo tài khoản tại [stripe.com](https://stripe.com), lấy **Secret key** (bắt đầu bằng `sk_test_`) ở Developers → API keys.
-2. Trong hPanel → **File Manager**, mở thư mục **home** (cấp *trên* `public_html`). Tạo file `ideaburst-config.php` với nội dung theo mẫu [`ideaburst-config.example.php`](ideaburst-config.example.php).
-   File này nằm ngoài web root nên không ai truy cập được qua trình duyệt, và không bao giờ nằm trong Git.
-3. Tạo hộp thư `no-reply@ideaburstflowers.com` trong hPanel → Emails (dùng làm địa chỉ gửi).
-4. Kiểm tra PHP ≥ 8.1: hPanel → Advanced → PHP Configuration.
-5. Test với thẻ `4242 4242 4242 4242` (ngày hết hạn bất kỳ trong tương lai, CVC bất kỳ). Khi đã ổn, thay bằng `sk_live_…`.
+> ⚠️ Chỉ dùng **một** cách. Bật cả hai thì chúng sẽ ghi đè lẫn nhau. Lần deploy đầu sẽ ghi đè website cũ, nên hãy sao lưu trước (hPanel → Files → Backups).
 
 Đơn hàng xem trong **Stripe Dashboard → Payments**. Mục *Metadata* của mỗi đơn có ngày giao, ZIP, người nhận, lời nhắn thiệp và hướng dẫn giao.
 
