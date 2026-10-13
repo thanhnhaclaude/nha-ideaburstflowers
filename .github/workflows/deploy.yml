@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -31,8 +31,31 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      # Skip the upload (instead of failing) until the FTP secrets are configured.
+      - name: Check FTP secrets
+        id: ftp
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          if [ -n "$FTP_SERVER" ] && [ -n "$FTP_USERNAME" ] && [ -n "$FTP_PASSWORD" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Deploy skipped::Add FTP_SERVER, FTP_USERNAME and FTP_PASSWORD in Settings → Secrets and variables → Actions, then re-run this workflow."
+            {
+              echo "## ⚠️ Deploy skipped"
+              echo "The site built successfully, but FTP secrets are missing."
+              echo ""
+              echo "Add these in **Settings → Secrets and variables → Actions**: \`FTP_SERVER\`, \`FTP_USERNAME\`, \`FTP_PASSWORD\` (optional: \`FTP_SERVER_DIR\`, default \`public_html/\`)."
+              echo "Then open **Actions → this run → Re-run all jobs**."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Upload to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        if: steps.ftp.outputs.ready == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
