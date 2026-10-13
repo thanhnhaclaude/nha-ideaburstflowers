@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.env*
+!.env.example
+stripe-config.php
+public/api/catalog.json
+.DS_Store
+Thumbs.db
+npm-debug.log*

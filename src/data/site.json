@@ -1,0 +1,30 @@
+{
+  "name": "IdeaBurst Flowers",
+  "shortName": "IdeaBurst",
+  "tagline": "Montana's modern florist",
+  "description": "Luxury hand-crafted bouquets, orchids and event florals from Kalispell, Montana. Free same-day delivery within Kalispell city limits.",
+  "url": "https://ideaburstflowers.com",
+  "legalName": "IDEABURST LLC",
+  "registration": "Montana LLC No. C1611986-17078210",
+  "phone": "(907) 735-0634",
+  "phoneHref": "+19077350634",
+  "email": "contact@ideaburstflowers.com",
+  "address": {
+    "street": "1001 S Main St, Ste 600",
+    "city": "Kalispell",
+    "region": "MT",
+    "postal": "59901",
+    "country": "US"
+  },
+  "geo": { "lat": 48.1906, "lng": -114.3128 },
+  "hours": [
+    { "days": "Monday – Saturday", "open": "8:00 AM", "close": "9:00 PM", "spec": ["Mo", "Tu", "We", "Th", "Fr", "Sa"], "opens": "08:00", "closes": "21:00" },
+    { "days": "Sunday", "open": "8:00 AM", "close": "10:00 PM", "spec": ["Su"], "opens": "08:00", "closes": "22:00" }
+  ],
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "pinterest": ""
+  },
+  "stats": { "arrangements": "10,000+", "freshness": "3+ days", "rating": "4.9" }
+}

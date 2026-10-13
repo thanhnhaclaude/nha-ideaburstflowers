@@ -1,0 +1,298 @@
+{
+  "currency": "usd",
+  "categories": [
+    {
+      "slug": "grand-opening",
+      "name": "Grand Opening",
+      "tagline": "Statement arrangements that wish a new venture abundance and good fortune.",
+      "image": "1567748157439-651aca2ff064"
+    },
+    {
+      "slug": "orchids",
+      "name": "Orchids",
+      "tagline": "Phalaenopsis orchids, potted to bloom for weeks — the gift that keeps giving.",
+      "image": "1524598171353-ce84a157ed05"
+    },
+    {
+      "slug": "birthday",
+      "name": "Birthday",
+      "tagline": "Joyful, generous bouquets to make their day feel properly celebrated.",
+      "image": "1561181286-d3fee7d55364"
+    },
+    {
+      "slug": "romance",
+      "name": "Romance",
+      "tagline": "Roses and peonies for anniversaries, apologies and every just-because.",
+      "image": "1494972308805-463bc619d34e"
+    },
+    {
+      "slug": "sympathy",
+      "name": "Sympathy",
+      "tagline": "Quiet, graceful arrangements that say what words cannot.",
+      "image": "1460039230329-eb070fc6c77c"
+    },
+    {
+      "slug": "everyday",
+      "name": "Everyday",
+      "tagline": "Seasonal stems for the kitchen table, the office, or a friend who needs a lift.",
+      "image": "1455659817273-f96807779a8a"
+    }
+  ],
+  "products": [
+    {
+      "id": "grand-opening-v338",
+      "sku": "V338",
+      "name": "Rosé Prosperity",
+      "category": "grand-opening",
+      "price": 68,
+      "compareAt": 95,
+      "image": "1563241527-3004b7be0ffd",
+      "badge": "Best Seller",
+      "short": "Blush roses and garden spray roses in an abundant, celebratory display.",
+      "description": "A generous, blush-toned arrangement built to stand out in a new storefront or lobby. Garden roses, spray roses and soft greenery are layered by hand for depth and movement, then finished with a satin ribbon ready for your congratulatory message.",
+      "details": ["Approx. 24\" tall", "Blush roses, spray roses, seasonal greenery", "Ribbon with custom message included", "Photo sent before delivery"]
+    },
+    {
+      "id": "grand-opening-v332",
+      "sku": "V332",
+      "name": "Peach Horizon",
+      "category": "grand-opening",
+      "price": 75,
+      "compareAt": 80,
+      "image": "1572454591674-2739f30d8c40",
+      "short": "Peach and cream roses arranged to welcome a bright new beginning.",
+      "description": "Warm peach, apricot and cream blooms gathered in a tall glass vessel. Elegant enough for a boutique opening, warm enough for a new office — a quiet signal of confidence and good fortune.",
+      "details": ["Approx. 22\" tall", "Garden roses, lisianthus, eucalyptus", "Glass vessel included", "Photo sent before delivery"]
+    },
+    {
+      "id": "grand-opening-v268",
+      "sku": "V268",
+      "name": "Grand Celebration",
+      "category": "grand-opening",
+      "price": 90,
+      "image": "1596438459194-f275f413d6ff",
+      "badge": "Signature",
+      "short": "Our most lavish opening arrangement — roses, carnations and lush texture.",
+      "description": "Designed to be noticed from the doorway. Pink and ivory roses, ruffled carnations and spray roses are arranged in a dense, luxurious dome — the arrangement our clients choose when the occasion deserves the very best.",
+      "details": ["Approx. 26\" wide", "Roses, carnations, spray roses", "Premium keepsake container", "Photo sent before delivery"]
+    },
+    {
+      "id": "grand-opening-v264",
+      "sku": "V264",
+      "name": "Crimson Fortune",
+      "category": "grand-opening",
+      "price": 52,
+      "compareAt": 65,
+      "image": "1567748157439-651aca2ff064",
+      "short": "Glossy red anthurium — a classic symbol of hospitality and success.",
+      "description": "Sculptural red anthurium with lacquered leaves, chosen for its long life and bold, architectural presence. A refined, low-maintenance gift for restaurants, salons and new business partners.",
+      "details": ["Approx. 20\" tall", "Anthurium with tropical foliage", "Lasts 2–3 weeks with care", "Photo sent before delivery"]
+    },
+    {
+      "id": "grand-opening-v260",
+      "sku": "V260",
+      "name": "Petal Grandeur",
+      "category": "grand-opening",
+      "price": 70,
+      "compareAt": 80,
+      "image": "1582794543139-8ac9cb0f7b11",
+      "short": "Full, ruffled pink roses for a soft yet unforgettable welcome.",
+      "description": "Dozens of full-petalled pink roses massed together for a romantic, high-impact display. Perfect for beauty studios, boutiques and any opening with a touch of glamour.",
+      "details": ["Approx. 18\" wide", "Garden and spray roses", "Hand-tied, presented in a keepsake box", "Photo sent before delivery"]
+    },
+    {
+      "id": "orchid-tp003",
+      "sku": "TP003",
+      "name": "Phalaenopsis Orchid — 20 Stem",
+      "category": "orchids",
+      "price": 52,
+      "compareAt": 65,
+      "image": "1524598171353-ce84a157ed05",
+      "badge": "Long Lasting",
+      "short": "A grand potted orchid display, twenty arching stems in full bloom.",
+      "description": "Twenty stems of premium Phalaenopsis orchids, staked and arranged in a ceramic planter. Orchids bloom for six to ten weeks with minimal care — a lasting gesture for offices, homes and milestones.",
+      "details": ["20 orchid stems", "Ceramic planter included", "Blooms 6–10 weeks", "Care card included"]
+    },
+    {
+      "id": "orchid-tp002",
+      "sku": "TP002",
+      "name": "Phalaenopsis Orchid — 18 Stem",
+      "category": "orchids",
+      "price": 25,
+      "compareAt": 26,
+      "image": "1610397648930-477b8c7f0943",
+      "short": "Vivid magenta orchids, potted and ready to brighten any room.",
+      "description": "Eighteen stems of vivid Phalaenopsis orchids in a clean, modern planter. An effortless, elegant gift that rewards a little indirect sunlight and a weekly sip of water with weeks of color.",
+      "details": ["18 orchid stems", "Modern planter included", "Blooms 6–10 weeks", "Care card included"]
+    },
+    {
+      "id": "orchid-tp001",
+      "sku": "TP001",
+      "name": "Phalaenopsis Orchid — 6 Stem",
+      "category": "orchids",
+      "price": 48,
+      "compareAt": 55,
+      "image": "1524598171353-ce84a157ed05",
+      "imageCrop": "bottom",
+      "short": "An intimate orchid arrangement for desks, bedside tables and kitchens.",
+      "description": "Six graceful orchid stems in a petite ceramic pot. Understated and long-lived, it suits a desk, a reception counter or a bedside table — and fits every interior.",
+      "details": ["6 orchid stems", "Petite ceramic pot", "Blooms 6–10 weeks", "Care card included"]
+    },
+    {
+      "id": "birthday-tp002",
+      "sku": "BD002",
+      "name": "Tulip Birthday Wishes",
+      "category": "birthday",
+      "price": 40,
+      "compareAt": 65,
+      "image": "1561181286-d3fee7d55364",
+      "short": "Fresh pink tulips — cheerful, simple and full of spring.",
+      "description": "A cheerful gathering of pink tulips with fresh greenery, presented in a clear vase. Light, bright and joyful — exactly what a birthday morning should feel like.",
+      "details": ["15 tulip stems", "Clear glass vase", "Seasonal greenery", "Photo sent before delivery"]
+    },
+    {
+      "id": "birthday-tp001",
+      "sku": "BD001",
+      "name": "Grand Birthday Bouquet",
+      "category": "birthday",
+      "price": 150,
+      "compareAt": 225,
+      "image": "1591886960571-74d43a9d4166",
+      "badge": "Luxury",
+      "short": "Garden roses and peonies in a lavish, hand-tied birthday statement.",
+      "description": "Our most generous birthday bouquet: cream and pink garden roses, seasonal peonies and textured fillers, hand-tied and wrapped in our signature paper. For the birthdays that matter most.",
+      "details": ["Approx. 40 stems", "Garden roses, peonies (seasonal)", "Signature wrap and ribbon", "Photo sent before delivery"]
+    },
+    {
+      "id": "flathead-morning",
+      "sku": "EV101",
+      "name": "Flathead Morning",
+      "category": "everyday",
+      "price": 85,
+      "image": "1533616688419-b7a585564566",
+      "sample": true,
+      "short": "A loose, garden-gathered bouquet inspired by summer on Flathead Lake.",
+      "description": "Seasonal blooms chosen fresh each morning by our designers and arranged in a relaxed, just-picked style. No two are exactly alike — every one feels like a walk through a Montana garden.",
+      "details": ["Designer's choice of seasonal stems", "Glass vase included", "Approx. 16\" tall", "Photo sent before delivery"]
+    },
+    {
+      "id": "blush-peony-cloud",
+      "sku": "RM201",
+      "name": "Blush Peony Cloud",
+      "category": "romance",
+      "price": 120,
+      "image": "1527061011665-3652c757a4d4",
+      "sample": true,
+      "short": "Lush, ruffled peonies — the most romantic flower of the season.",
+      "description": "Generous, cloud-soft peonies in shades of blush and rose. When peonies are out of season we substitute garden roses of equal beauty and value.",
+      "details": ["10 premium peony stems", "Garden-rose substitution off-season", "Signature wrap", "Photo sent before delivery"]
+    },
+    {
+      "id": "classic-red-roses",
+      "sku": "RM202",
+      "name": "Classic Dozen Red Roses",
+      "category": "romance",
+      "price": 95,
+      "image": "1494972308805-463bc619d34e",
+      "sample": true,
+      "short": "Twelve long-stem red roses — timeless, confident, unmistakable.",
+      "description": "Twelve premium long-stem red roses with delicate greenery, hand-tied and presented in a glass vase. The universal language of love, spoken beautifully.",
+      "details": ["12 long-stem roses", "Glass vase included", "Approx. 20\" tall", "Photo sent before delivery"]
+    },
+    {
+      "id": "white-tulip-study",
+      "sku": "EV102",
+      "name": "White Tulip Study",
+      "category": "everyday",
+      "price": 65,
+      "image": "1589994160839-163cd867cfe8",
+      "sample": true,
+      "short": "Crisp white tulips for the minimalist who appreciates quiet beauty.",
+      "description": "Pure white tulips with clean, sculptural lines. Elegant on a dining table, calm on a desk, and a thoughtful gift for any occasion.",
+      "details": ["20 tulip stems", "Glass vase included", "Approx. 15\" tall", "Photo sent before delivery"]
+    },
+    {
+      "id": "quiet-grace",
+      "sku": "SY301",
+      "name": "Quiet Grace",
+      "category": "sympathy",
+      "price": 110,
+      "image": "1460039230329-eb070fc6c77c",
+      "sample": true,
+      "short": "Soft white blooms arranged with dignity for remembrance and comfort.",
+      "description": "An all-white arrangement of chrysanthemums, roses and soft greenery. Suitable for a service, a family home or a quiet moment of remembrance. Same-day delivery to funeral homes in our area.",
+      "details": ["White chrysanthemums and roses", "Suitable for services or homes", "Same-day to local funeral homes", "Card with your message included"]
+    },
+    {
+      "id": "sunlit-field",
+      "sku": "EV103",
+      "name": "Sunlit Field",
+      "category": "everyday",
+      "price": 60,
+      "image": "1455659817273-f96807779a8a",
+      "sample": true,
+      "short": "Golden sunflowers that bring a Big Sky afternoon indoors.",
+      "description": "Bright sunflowers with seasonal accents, gathered loosely and presented in a vase. Instantly uplifting — a favorite for get-well wishes and thank-yous.",
+      "details": ["8–10 sunflower stems", "Glass vase included", "Approx. 18\" tall", "Photo sent before delivery"]
+    }
+  ],
+  "addons": [
+    { "id": "card-premium", "name": "Letterpress Card", "price": 6, "description": "Heavy cotton card, handwritten by our team." },
+    { "id": "chocolates", "name": "Artisan Chocolates", "price": 22, "description": "A box of 12 handmade Montana chocolates." },
+    { "id": "candle", "name": "Botanical Soy Candle", "price": 28, "description": "Hand-poured, 40-hour burn, garden-rose scent." },
+    { "id": "balloon", "name": "Celebration Balloon", "price": 12, "description": "Foil balloon, matched to your occasion." }
+  ],
+  "plans": [
+    {
+      "id": "plan-petite",
+      "name": "Petite",
+      "price": 45,
+      "description": "A seasonal hand-tied posy — perfect for a kitchen counter or desk.",
+      "features": ["10–12 seasonal stems", "Designer's choice", "Free local delivery", "Pause or cancel anytime"]
+    },
+    {
+      "id": "plan-signature",
+      "name": "Signature",
+      "price": 75,
+      "featured": true,
+      "description": "Our most-loved arrangement, refreshed with the season's best blooms.",
+      "features": ["20–25 premium stems", "Keepsake vase with first delivery", "Free local delivery", "Pause or cancel anytime"]
+    },
+    {
+      "id": "plan-estate",
+      "name": "Estate",
+      "price": 140,
+      "description": "A lavish statement for entryways, lobbies and those who love abundance.",
+      "features": ["40+ luxury stems", "Premium vessel included", "Priority delivery window", "Pause or cancel anytime"]
+    }
+  ],
+  "frequencies": [
+    { "id": "weekly", "name": "Weekly", "interval": "week", "count": 1, "discount": 10 },
+    { "id": "biweekly", "name": "Every 2 weeks", "interval": "week", "count": 2, "discount": 5 },
+    { "id": "monthly", "name": "Monthly", "interval": "month", "count": 1, "discount": 0 }
+  ],
+  "delivery": {
+    "cutoffHour": 14,
+    "timezone": "America/Denver",
+    "zones": [
+      {
+        "name": "Kalispell",
+        "fee": 0,
+        "sameDay": true,
+        "zips": ["59901", "59903", "59904"]
+      },
+      {
+        "name": "Flathead Valley",
+        "fee": 12,
+        "sameDay": true,
+        "zips": ["59937", "59912", "59911", "59932", "59922", "59920"]
+      },
+      {
+        "name": "Greater Flathead & Glacier",
+        "fee": 20,
+        "sameDay": false,
+        "zips": ["59936", "59919", "59926", "59913", "59925", "59860", "59929", "59916"]
+      }
+    ]
+  }
+}
