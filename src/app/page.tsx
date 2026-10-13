@@ -254,30 +254,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- Testimonials ---------- */}
-      <section className="section" id="reviews">
-        <div className="container">
-          <div className="section-head">
-            <div className="stack reveal">
-              <span className="eyebrow">Kind words</span>
-              <h2 className="h2">
-                Loved by the people <em>we deliver to</em>
-              </h2>
+      {/* ---------- Reviews (or trust band until real reviews exist) ---------- */}
+      {testimonials.length > 0 ? (
+        <section className="section" id="reviews">
+          <div className="container">
+            <div className="section-head">
+              <div className="stack reveal">
+                <span className="eyebrow">Kind words</span>
+                <h2 className="h2">
+                  Loved by the people <em>we deliver to</em>
+                </h2>
+              </div>
+            </div>
+            <div className="quote-grid">
+              {testimonials.slice(0, 3).map((t, i) => (
+                <ReviewCard key={t.name + i} review={t} delay={i * 80} />
+              ))}
+            </div>
+            <div className="review-cta reveal">
+              <p className="muted">Sent flowers with us recently? We&rsquo;d be grateful to hear how it went.</p>
+              <Link href="/reviews/write/" className="link">
+                Write a review <IconArrow />
+              </Link>
             </div>
           </div>
-          <div className="quote-grid">
-            {testimonials.slice(0, 3).map((t, i) => (
-              <ReviewCard key={t.name + i} review={t} delay={i * 80} />
-            ))}
+        </section>
+      ) : (
+        <section className="section-sm bg-moss" id="reviews">
+          <div className="container">
+            <div className="stats">
+              {[
+                [site.stats.arrangements, "Arrangements delivered"],
+                ["100%", "Orders photographed before delivery"],
+                [site.stats.freshness, "Freshness, guaranteed"],
+                ["24/7", "Hotline for urgent orders"],
+              ].map(([n, l], i) => (
+                <div key={l} className="stat reveal" style={{ ["--d" as string]: `${i * 80}ms` }}>
+                  <strong>{n}</strong>
+                  <span>{l}</span>
+                </div>
+              ))}
+            </div>
+            <div className="review-cta reveal" style={{ borderTopColor: "rgba(251, 248, 243, 0.18)" }}>
+              <p className="muted">Sent flowers with us recently? We&rsquo;d be grateful to hear how it went.</p>
+              <Link href="/reviews/write/" className="btn btn-ghost-light btn-sm">
+                Write a review <IconArrow />
+              </Link>
+            </div>
           </div>
-          <div className="review-cta reveal">
-            <p className="muted">Sent flowers with us recently? We&rsquo;d be grateful to hear how it went.</p>
-            <Link href="/reviews/write/" className="link">
-              Write a review <IconArrow />
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ---------- Journal ---------- */}
       <section className="section bg-paper">

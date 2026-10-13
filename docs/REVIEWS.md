@@ -32,7 +32,7 @@ Vi phạm có thể bị phạt tới **hơn 50.000 USD cho mỗi vi phạm**.
 ```
 
 5. `git push`, website sẽ tự cập nhật. Trang chủ hiển thị 3 đánh giá đầu tiên trong mảng.
-6. Khi đã có đủ đánh giá từ khách Mỹ, xoá 4 đánh giá cũ hoặc để chúng xuống cuối mảng.
+6. Khi mảng `testimonials` còn trống, trang chủ hiển thị dải cam kết thay cho phần đánh giá. Chỉ cần thêm đánh giá thật đầu tiên là phần đánh giá tự hiện lại. 4 đánh giá từ site cũ được lưu trong `archivedTestimonials` và không hiển thị.
 
 ## Google Reviews
 

@@ -18,7 +18,14 @@ export type Testimonial = {
   rating?: 1 | 2 | 3 | 4 | 5;
 };
 
-export const testimonials: Testimonial[] = [
+/**
+ * Reviews shown on the site. Empty = the homepage shows a trust band instead.
+ * Add real customer reviews here (newest first) — see docs/REVIEWS.md.
+ */
+export const testimonials: Testimonial[] = [];
+
+/** Earlier reviews from the previous website, kept for reference (not displayed). */
+export const archivedTestimonials: Testimonial[] = [
   {
     quote: "Thank you so much for the beautiful fresh flowers. The flowers are gorgeous and so fresh! I love them!",
     name: "Ngo Nhat Anh",
