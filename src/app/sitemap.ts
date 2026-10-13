@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const pages = ["", "shop", "subscriptions", "weddings-events", "journal", "about", "contact", "delivery", "faq", "policies/returns", "policies/privacy", "policies/terms"];
+  const pages = ["", "shop", "subscriptions", "weddings-events", "journal", "about", "contact", "delivery", "faq", "reviews/write", "policies/returns", "policies/privacy", "policies/terms"];
   return [
     ...pages.map((p) => ({ url: `${site.url}/${p ? p + "/" : ""}`, lastModified: now, priority: p ? 0.7 : 1 })),
     ...categories.map((c) => ({ url: `${site.url}/collections/${c.slug}/`, lastModified: now, priority: 0.8 })),

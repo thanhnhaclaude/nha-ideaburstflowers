@@ -32,9 +32,14 @@ export default function SuccessPage() {
             <IconClock /> Questions? Our 24/7 hotline is {site.phone}.
           </li>
         </ul>
-        <Link href="/shop/" className="btn mt-5">
-          Continue shopping <IconArrow />
-        </Link>
+        <div className="row mt-5" style={{ justifyContent: "center" }}>
+          <Link href="/shop/" className="btn">
+            Continue shopping <IconArrow />
+          </Link>
+          <Link href="/reviews/write/" className="btn btn-outline">
+            Review us later
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,24 @@
 // Editorial content. Edit freely — pages rebuild from this file.
 
-export const testimonials = [
+/**
+ * Customer reviews. ONLY add reviews from real customers, word-for-word, with their
+ * permission to show name/photo (see docs/REVIEWS.md — FTC 16 CFR Part 465).
+ * Newest first; the homepage shows the first three.
+ */
+export type Testimonial = {
+  quote: string;
+  /** As the customer agreed to be shown, e.g. "Sarah M." */
+  name: string;
+  /** City/state ("Whitefish, MT") or a role ("Office Manager"). */
+  role: string;
+  /** Optional customer-supplied photo in /public/images/reviews/, e.g. "/images/reviews/sarah-m.webp". */
+  photo?: string;
+  occasion?: string;
+  source?: "Google" | "Website" | "Email" | "Facebook";
+  rating?: 1 | 2 | 3 | 4 | 5;
+};
+
+export const testimonials: Testimonial[] = [
   {
     quote: "Thank you so much for the beautiful fresh flowers. The flowers are gorgeous and so fresh! I love them!",
     name: "Ngo Nhat Anh",

@@ -22,6 +22,7 @@ const cols = [
     title: "Help",
     links: [
       { href: "/faq/", label: "FAQ" },
+      { href: "/reviews/write/", label: "Write a Review" },
       { href: "/delivery/", label: "How to Order" },
       { href: "/policies/returns/", label: "Freshness & Refunds" },
       { href: "/contact/", label: "Contact Us" },

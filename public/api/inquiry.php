@@ -14,7 +14,7 @@ ib_rate_limit('inquiry', 6, 300);
 // Honeypot: bots fill the hidden "website" field. Pretend success.
 if (ib_str($req['website'] ?? '', 200) !== '') ib_ok();
 
-$type = in_array($req['type'] ?? '', ['contact', 'event', 'newsletter'], true) ? $req['type'] : 'contact';
+$type = in_array($req['type'] ?? '', ['contact', 'event', 'newsletter', 'review'], true) ? $req['type'] : 'contact';
 $email = filter_var(ib_str($req['email'] ?? '', 200), FILTER_VALIDATE_EMAIL);
 if (!$email) ib_fail(422, 'Please enter a valid email address.');
 
@@ -27,6 +27,9 @@ $fields = [
     'guests' => 'Guests',
     'venue' => 'Venue',
     'budget' => 'Budget',
+    'displayName' => 'Display name',
+    'city' => 'City',
+    'occasion' => 'Occasion',
     'message' => 'Message',
 ];
 
@@ -36,6 +39,13 @@ foreach ($fields as $key => $label) {
     if ($val !== '') $lines[] = "{$label}: {$val}";
 }
 if ($type !== 'newsletter' && ib_str($req['message'] ?? '', 10) === '') ib_fail(422, 'Please include a message.');
+if ($type === 'review') {
+    if (($req['consent'] ?? false) !== true) ib_fail(422, 'Please confirm we may publish your review.');
+    $rating = max(1, min(5, (int) ($req['rating'] ?? 5)));
+    $lines[] = "Rating: {$rating}/5";
+    $lines[] = 'Publish consent: YES (' . gmdate('Y-m-d H:i') . ' UTC, IP ' . ($_SERVER['REMOTE_ADDR'] ?? '?') . ')';
+    $lines[] = 'Photo consent: ' . (($req['photoConsent'] ?? false) === true ? 'YES — email customer to request photo' : 'no');
+}
 
 $cfg = ib_config();
 $host = preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'ideaburstflowers.com');
@@ -47,6 +57,7 @@ $subjects = [
     'contact' => 'New website message',
     'event' => 'New wedding/event inquiry',
     'newsletter' => 'New newsletter subscriber',
+    'review' => 'New customer review',
 ];
 $subject = '[IdeaBurst] ' . $subjects[$type] . ($name !== '' ? " — {$name}" : '');
 $body = implode("\n", $lines) . "\n\n— Sent from " . $host . ' on ' . gmdate('Y-m-d H:i') . " UTC\n";

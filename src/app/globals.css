@@ -1334,13 +1334,70 @@ ol[role="list"] {
 .quote-card figcaption .avatar {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  flex: none;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: var(--blush);
+  background: #e7cbc0;
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 1px var(--line-strong);
   font-family: var(--font-display);
   font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--rose-deep);
+}
+.quote-card figcaption .avatar-photo {
+  object-fit: cover;
+  background: var(--sage);
+}
+.quote-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.quote-source {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.stars svg.off {
+  opacity: 0.25;
+}
+.rating-input {
+  display: flex;
+  gap: 4px;
+}
+.rating-input button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--line-strong);
+  transition: color var(--dur-fast), transform var(--dur-fast);
+}
+.rating-input button svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+.rating-input button.on {
+  color: var(--gold);
+}
+.rating-input button:hover {
+  transform: scale(1.1);
+}
+.review-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--line);
 }
 .quote-card figcaption strong {
   display: block;
@@ -1424,6 +1481,7 @@ ol[role="list"] {
 .field {
   display: grid;
   gap: 8px;
+  align-content: start;
 }
 .field label,
 .field .label {
@@ -1995,6 +2053,15 @@ ol[role="list"] {
 }
 .page-hero .stack {
   max-width: 820px;
+}
+.page-hero .container.stack {
+  max-width: 1360px;
+}
+.page-hero .container.stack > * {
+  max-width: 820px;
+}
+.page-hero .container.stack > .chip-row {
+  max-width: 100%;
 }
 .page-hero.center .stack {
   margin-inline: auto;

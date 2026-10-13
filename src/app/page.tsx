@@ -2,7 +2,7 @@ import Link from "next/link";
 import Img from "@/components/Img";
 import { IconArrow, IconCamera, IconCheck, IconClock, IconLeaf, IconTruck } from "@/components/Icons";
 import ProductCard from "@/components/ProductCard";
-import Stars from "@/components/Stars";
+import ReviewCard from "@/components/ReviewCard";
 import ZipChecker from "@/components/ZipChecker";
 import { articles, testimonials } from "@/data/content";
 import { categories, getProduct, plans, productsIn, site } from "@/lib/catalog";
@@ -255,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* ---------- Testimonials ---------- */}
-      <section className="section">
+      <section className="section" id="reviews">
         <div className="container">
           <div className="section-head">
             <div className="stack reveal">
@@ -267,20 +267,14 @@ export default function Home() {
           </div>
           <div className="quote-grid">
             {testimonials.slice(0, 3).map((t, i) => (
-              <figure key={t.name} className="quote-card reveal" style={{ ["--d" as string]: `${i * 80}ms` }}>
-                <Stars />
-                <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
-                <figcaption>
-                  <span className="avatar" aria-hidden="true">
-                    {t.name.charAt(0)}
-                  </span>
-                  <span>
-                    <strong>{t.name}</strong>
-                    <span>{t.role}</span>
-                  </span>
-                </figcaption>
-              </figure>
+              <ReviewCard key={t.name + i} review={t} delay={i * 80} />
             ))}
+          </div>
+          <div className="review-cta reveal">
+            <p className="muted">Sent flowers with us recently? We&rsquo;d be grateful to hear how it went.</p>
+            <Link href="/reviews/write/" className="link">
+              Write a review <IconArrow />
+            </Link>
           </div>
         </div>
       </section>
