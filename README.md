@@ -58,11 +58,11 @@ npm run dev                  # http://localhost:3000
 3. Bấm **Tái triển khai**. Mỗi lần `git push` lên `main`, Hostinger sẽ tự build lại.
 4. Test thanh toán với thẻ `4242 4242 4242 4242` (ngày hết hạn bất kỳ trong tương lai, CVC bất kỳ). Khi đã ổn, đổi sang `sk_live_…`.
 
-Khi dùng cách A, **không thêm** các secret FTP trên GitHub. GitHub Actions khi đó chỉ build để kiểm tra code, không upload gì.
+GitHub Actions ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) chỉ **kiểm tra code** sau mỗi lần push: cài đặt, kiểm tra kiểu và build giống hệt Hostinger. Nó không upload gì. Nếu dấu ✅ trên GitHub chuyển thành ❌, nghĩa là bản push đó có lỗi; Hostinger cũng sẽ build lỗi, nhưng website vẫn chạy bản cũ.
 
 ## Cách B: Tĩnh + PHP qua FTP (dự phòng cho gói không có Node.js)
 
-1. Thêm GitHub Secrets ở repo → **Settings → Secrets and variables → Actions**: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, và tuỳ chọn `FTP_SERVER_DIR` (mặc định `public_html/`).
+1. Chép file [`hosting/ftp-deploy.workflow.yml`](hosting/ftp-deploy.workflow.yml) vào `.github/workflows/deploy.yml`, rồi thêm GitHub Secrets ở repo → **Settings → Secrets and variables → Actions**: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, và tuỳ chọn `FTP_SERVER_DIR` (mặc định `public_html/`).
 2. Tạo file `~/ideaburst-config.php` ở thư mục **home**, cấp trên `public_html`, theo mẫu [`ideaburst-config.example.php`](ideaburst-config.example.php). Yêu cầu PHP ≥ 8.1.
 3. Mỗi lần push, GitHub Actions sẽ chạy `npm run build:static` rồi upload `out/` lên Hostinger.
 
