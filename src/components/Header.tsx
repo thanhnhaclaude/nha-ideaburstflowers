@@ -49,7 +49,7 @@ export default function Header() {
             <IconTruck width={16} height={16} /> Free same-day delivery in Kalispell
           </span>
           <span>
-            Order by <strong>2 PM</strong> for same-day delivery<span className="hide-xs"> · <Link href="/delivery/">Check your ZIP</Link></span>
+            Order by <strong>2 PM</strong> for same-day delivery<span className="hide-xs"> · <Link href="/delivery/" prefetch={false}>Check your ZIP</Link></span>
           </span>
           <a className="hide-sm" href={`tel:${site.phoneHref}`}>
             24/7 Hotline {site.phone}
@@ -76,7 +76,7 @@ export default function Header() {
             <ul role="list">
               {mainNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="nav-link" aria-current={isActive(item.href) ? "page" : undefined}>
+                  <Link href={item.href} prefetch={false} className="nav-link" aria-current={isActive(item.href) ? "page" : undefined}>
                     {item.label}
                   </Link>
                 </li>
@@ -111,7 +111,7 @@ export default function Header() {
           <ul role="list">
             {[{ href: "/", label: "Home" }, ...mainNav, { href: "/contact/", label: "Contact" }].map((item) => (
               <li key={item.href}>
-                <Link href={item.href} aria-current={pathname === item.href ? "page" : undefined}>
+                <Link href={item.href} prefetch={false} aria-current={pathname === item.href ? "page" : undefined}>
                   {item.label} <IconChevron />
                 </Link>
               </li>

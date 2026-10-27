@@ -61,7 +61,7 @@ export default async function ArticlePage({ params }: Props) {
       </header>
       <div className="container" style={{ maxWidth: 1200 }}>
         <div style={{ aspectRatio: "16 / 9", overflow: "hidden", borderRadius: "var(--radius)", background: "var(--sage)" }}>
-          <Img id={a.image} alt="" ratio={0.5625} sizes="(min-width: 1200px) 1200px, 100vw" priority />
+          <Img id={a.image} alt="" ratio={0.5625} sizes="(min-width: 1200px) 1200px, calc(100vw - 32px)" priority />
         </div>
       </div>
       <div className="container-narrow section-sm">
@@ -95,7 +95,7 @@ export default async function ArticlePage({ params }: Props) {
             {more.map((m) => (
               <article key={m.slug} className="j-card">
                 <div className="j-card-media">
-                  <Img id={m.image} alt="" ratio={0.667} sizes="(min-width: 768px) 50vw, 100vw" />
+                  <Img id={m.image} alt="" ratio={0.667} sizes="(min-width: 768px) 50vw, calc(100vw - 32px)" />
                 </div>
                 <div className="j-meta">
                   <span>{m.category}</span>

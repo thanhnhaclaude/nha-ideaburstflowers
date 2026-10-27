@@ -63,7 +63,7 @@ export default function WeddingsPage() {
           <div className={`container split${i % 2 ? " reverse" : ""}`}>
             <div className="split-media reveal">
               <div className={`frame${i === 0 ? " arch" : ""}`}>
-                <Img id={s.image} alt={s.title} ratio={1.25} sizes="(min-width: 960px) 45vw, 100vw" />
+                <Img id={s.image} alt={s.title} ratio={1.25} sizes="(min-width: 960px) 45vw, calc(100vw - 32px)" />
               </div>
             </div>
             <div className="stack reveal">

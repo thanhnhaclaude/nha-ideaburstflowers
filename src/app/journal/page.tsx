@@ -29,7 +29,7 @@ export default function JournalPage() {
         <div className="container">
           <article className="j-card split" style={{ marginBottom: 80 }}>
             <div className="j-card-media" style={{ aspectRatio: "4 / 3" }}>
-              <Img id={lead.image} alt="" ratio={0.75} sizes="(min-width: 960px) 50vw, 100vw" priority />
+              <Img id={lead.image} alt="" ratio={0.75} sizes="(min-width: 960px) 50vw, calc(100vw - 32px)" priority />
             </div>
             <div className="stack">
               <div className="j-meta">
@@ -47,7 +47,7 @@ export default function JournalPage() {
             {rest.map((a, i) => (
               <article key={a.slug} className="j-card reveal" style={{ ["--d" as string]: `${i * 80}ms` }}>
                 <div className="j-card-media">
-                  <Img id={a.image} alt="" ratio={0.667} sizes="(min-width: 1100px) 33vw, (min-width: 768px) 50vw, 100vw" />
+                  <Img id={a.image} alt="" ratio={0.667} sizes="(min-width: 1100px) 33vw, (min-width: 768px) 50vw, calc(100vw - 32px)" />
                 </div>
                 <div className="j-meta">
                   <span>{a.category}</span>

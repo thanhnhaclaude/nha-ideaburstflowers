@@ -62,10 +62,10 @@ export default function Home() {
 
           <div className="hero-visual">
             <div className="hero-img-main">
-              <Img id="1487530811176-3780de880c2d" alt="A florist holding a lush, freshly gathered bouquet of garden roses and wildflowers" ratio={1.25} sizes="(min-width: 960px) 45vw, 100vw" priority />
+              <Img id="1487530811176-3780de880c2d" alt="A florist holding a lush, freshly gathered bouquet of garden roses and wildflowers" ratio={1.25} sizes="(min-width: 960px) 45vw, calc(100vw - 32px)" priority />
             </div>
             <div className="hero-img-small">
-              <Img id="1567696153798-9111f9cd3d0d" alt="A wrapped bouquet being handed over at delivery" ratio={1.33} sizes="20vw" priority />
+              <Img id="1567696153798-9111f9cd3d0d" alt="A wrapped bouquet being handed over at delivery" ratio={1.33} sizes="20vw" />
             </div>
             <div className="hero-badge" aria-hidden="true">
               <svg className="ring" viewBox="0 0 100 100">
@@ -188,7 +188,7 @@ export default function Home() {
         <div className="container split">
           <div className="split-media reveal">
             <div className="frame arch">
-              <Img id="1521543832500-49e69fb2bea2" alt="A bride holding a romantic bouquet of red and blush roses" ratio={1.25} sizes="(min-width: 960px) 45vw, 100vw" />
+              <Img id="1521543832500-49e69fb2bea2" alt="A bride holding a romantic bouquet of red and blush roses" ratio={1.25} sizes="(min-width: 960px) 45vw, calc(100vw - 32px)" />
             </div>
             <div className="inset">
               <Img id="1519225421980-715cb0215aed" alt="A long reception table dressed with low floral arrangements" ratio={1} sizes="20vw" />
@@ -223,7 +223,7 @@ export default function Home() {
         <div className="container split reverse">
           <div className="split-media reveal">
             <div className="frame">
-              <Img id="1468327768560-75b778cbb551" alt="Pink and white tulips against a soft blue sky" ratio={1.25} sizes="(min-width: 960px) 45vw, 100vw" />
+              <Img id="1468327768560-75b778cbb551" alt="Pink and white tulips against a soft blue sky" ratio={1.25} sizes="(min-width: 960px) 45vw, calc(100vw - 32px)" />
             </div>
           </div>
           <div className="stack reveal">
@@ -323,7 +323,7 @@ export default function Home() {
             {articles.slice(0, 3).map((a, i) => (
               <article key={a.slug} className="j-card reveal" style={{ ["--d" as string]: `${i * 80}ms` }}>
                 <div className="j-card-media">
-                  <Img id={a.image} alt="" ratio={0.667} sizes="(min-width: 1100px) 33vw, (min-width: 768px) 50vw, 100vw" />
+                  <Img id={a.image} alt="" ratio={0.667} sizes="(min-width: 1100px) 33vw, (min-width: 768px) 50vw, calc(100vw - 32px)" />
                 </div>
                 <div className="j-meta">
                   <span>{a.category}</span>

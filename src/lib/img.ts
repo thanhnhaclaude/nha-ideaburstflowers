@@ -1,6 +1,6 @@
 // Unsplash CDN helper. Replace ids with your own photography by swapping
 // `image` values in src/data/catalog.json for paths under /public/images.
-const WIDTHS = [400, 640, 960, 1280, 1920];
+const WIDTHS = [400, 480, 640, 720, 960, 1280, 1920];
 
 export function imgUrl(id: string, w: number, h?: number, crop = "entropy") {
   if (id.startsWith("/")) return id;

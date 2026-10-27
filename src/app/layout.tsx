@@ -14,6 +14,8 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
+  // Headings only; preloading it competes with the hero image on mobile.
+  preload: false,
 });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 

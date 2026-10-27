@@ -39,7 +39,7 @@ export default function AboutPage() {
         <div className="container split">
           <div className="split-media reveal">
             <div className="frame">
-              <Img id="1487070183336-b863922373d4" alt="Buckets of fresh flowers on display in a flower shop" ratio={1.25} sizes="(min-width: 960px) 45vw, 100vw" priority />
+              <Img id="1487070183336-b863922373d4" alt="Buckets of fresh flowers on display in a flower shop" ratio={1.25} sizes="(min-width: 960px) 45vw, calc(100vw - 32px)" priority />
             </div>
             <div className="inset">
               <Img id="1558603668-6570496b66f8" alt="A bright, airy corner of the studio with plants and woven textures" ratio={1} sizes="20vw" />

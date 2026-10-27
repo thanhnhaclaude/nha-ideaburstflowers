@@ -58,7 +58,7 @@ export default async function ProductPage({ params }: Props) {
         <nav aria-label="Breadcrumb">
           <ol className="breadcrumb" role="list">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" prefetch={false}>Home</Link>
             </li>
             <li>
               <Link href={`/collections/${cat.slug}/`}>{cat.name}</Link>
@@ -71,7 +71,7 @@ export default async function ProductPage({ params }: Props) {
       <div className="container pdp">
         <div className="pdp-gallery">
           <figure>
-            <Img id={p.image} crop={p.imageCrop} alt={`${p.name}: ${p.short}`} ratio={1.25} sizes="(min-width: 1000px) 55vw, 100vw" priority />
+            <Img id={p.image} crop={p.imageCrop} alt={`${p.name}: ${p.short}`} ratio={1.25} sizes="(min-width: 1000px) 55vw, calc(100vw - 32px)" priority />
           </figure>
           <figure>
             <Img id={p.image} crop="top" alt={`${p.name}, detail of the blooms`} ratio={1} sizes="(min-width: 1000px) 27vw, 50vw" />

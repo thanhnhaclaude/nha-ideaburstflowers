@@ -77,7 +77,7 @@ export default function Footer() {
                 <ul role="list">
                   {col.links.map((l) => (
                     <li key={l.href + l.label}>
-                      <Link href={l.href}>{l.label}</Link>
+                      <Link href={l.href} prefetch={false}>{l.label}</Link>
                     </li>
                   ))}
                 </ul>
