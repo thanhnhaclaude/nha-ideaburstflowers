@@ -7,12 +7,14 @@ type Props = {
   ratio?: number;
   sizes?: string;
   priority?: boolean;
+  /** Load immediately but let the browser pick the priority (for images that are above the fold only on some screens). */
+  eager?: boolean;
   crop?: string;
   className?: string;
 };
 
 /** Responsive, CLS-safe image. Reserves space via width/height attributes. */
-export default function Img({ id, alt, ratio = 1.25, sizes = "(min-width: 1024px) 25vw, 50vw", priority, crop, className }: Props) {
+export default function Img({ id, alt, ratio = 1.25, sizes = "(min-width: 1024px) 25vw, 50vw", priority, eager, crop, className }: Props) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
@@ -22,7 +24,7 @@ export default function Img({ id, alt, ratio = 1.25, sizes = "(min-width: 1024px
       width={960}
       height={Math.round(960 * ratio)}
       alt={alt}
-      loading={priority ? "eager" : "lazy"}
+      loading={priority || eager ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : undefined}
       decoding="async"
       className={className}

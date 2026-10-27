@@ -62,7 +62,7 @@ export default function Home() {
 
           <div className="hero-visual">
             <div className="hero-img-main">
-              <Img id="1487530811176-3780de880c2d" alt="A florist holding a lush, freshly gathered bouquet of garden roses and wildflowers" ratio={1.25} sizes="(min-width: 960px) 45vw, calc(100vw - 32px)" priority />
+              <Img id="1487530811176-3780de880c2d" alt="A florist holding a lush, freshly gathered bouquet of garden roses and wildflowers" ratio={1.25} sizes="(min-width: 960px) 45vw, calc(100vw - 32px)" eager />
             </div>
             <div className="hero-img-small">
               <Img id="1567696153798-9111f9cd3d0d" alt="A wrapped bouquet being handed over at delivery" ratio={1.33} sizes="20vw" />
