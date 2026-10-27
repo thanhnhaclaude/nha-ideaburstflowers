@@ -1,4 +1,5 @@
-import { imgSrcSet, imgUrl } from "@/lib/img";
+import Image from "next/image";
+import { imgUrl } from "@/lib/img";
 
 type Props = {
   id: string;
@@ -13,20 +14,21 @@ type Props = {
   className?: string;
 };
 
-/** Responsive, CLS-safe image. Reserves space via width/height attributes. */
+/**
+ * Responsive, CLS-safe image. Reserves space via width/height attributes.
+ * Node build: served from our own domain through the Next.js image optimizer (AVIF/WebP).
+ * Static build: src/lib/img-loader.ts points the srcset straight at the Unsplash CDN.
+ */
 export default function Img({ id, alt, ratio = 1.25, sizes = "(min-width: 1024px) 25vw, 50vw", priority, eager, crop, className }: Props) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={imgUrl(id, 960, Math.round(960 * ratio), crop)}
-      srcSet={imgSrcSet(id, ratio, crop)}
+    <Image
+      src={imgUrl(id, 1920, Math.round(1920 * ratio), crop)}
       sizes={sizes}
       width={960}
       height={Math.round(960 * ratio)}
       alt={alt}
       loading={priority || eager ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : undefined}
-      decoding="async"
       className={className}
     />
   );

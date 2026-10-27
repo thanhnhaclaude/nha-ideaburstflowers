@@ -37,7 +37,18 @@ const nextConfig = {
   pageExtensions: isStatic ? ["tsx", "ts"] : ["server.ts", "tsx", "ts"],
   // /shop/ -> /shop/index.html so Apache serves clean URLs without rewrites.
   trailingSlash: true,
-  images: { unoptimized: true },
+  images: {
+    // Phones get 480–720px files, desktops up to 1920px.
+    deviceSizes: [400, 480, 640, 720, 960, 1280, 1920],
+    ...(isStatic
+      ? { loader: "custom", loaderFile: "./src/lib/img-loader.ts" }
+      : {
+          remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+          formats: ["image/avif", "image/webp"],
+          // Unsplash photos never change for a given URL; keep optimized copies for a year.
+          minimumCacheTTL: 31536000,
+        }),
+  },
   poweredByHeader: false,
 };
 
